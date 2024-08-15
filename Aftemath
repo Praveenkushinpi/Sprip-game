@@ -1,0 +1,16 @@
+Function to check if player reaches the puff and handles scoring
+function checkAndCollectPuff() {
+  const playerPos = getFirst(player); 
+  // Get player position
+  const puff = getAll(puff);  
+  // Get all puff objects
+ puffs.forEach(puffObj => {
+    if (playerPos.x === puffObj.x && playerPos.y === puffObj.y) {
+      // Collision detected
+      clearTile(puffObj.x, puffObj.y);  
+      // Remove the puff from the map
+      score += 1; 
+      // Increase the score
+      clearText();  
+      // Clear the existing score text
+      addText(`Score: ${score}`, { x: 0, y: 0, color: color`
