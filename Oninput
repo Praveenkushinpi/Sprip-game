@@ -1,0 +1,29 @@
+const currentLevel = levels[level];
+setMap(currentLevel);
+setSolids([player,wall,wallh,crosswall])
+setPushables({
+  [ player ]: [puff]
+})
+  //INPUT
+onInput("d", () => {
+  getFirst(player).x += 1;
+})
+onInput("a", () => {
+  getFirst(player).x -= 1;
+})
+onInput("w", () => {
+  getFirst(player).y -= 1;
+})
+onInput("s", () => {
+  getFirst(player).y += 1;
+})
+onInput("i", () => {
+  resetGame()
+})
+/* 
+afterInput(() => {
+  const checkIfWon = tilesWith(player,customer).length;
+  if(checkIfWon === 0) {
+    addText("you win!"); 
+  })
+  
