@@ -1,0 +1,31 @@
+  map `
+...........g
+.bbbbbbbbbbb
+.b.........b
+.b.bbb.....b
+.b.b..bbbb.b
+.........b.b
+.bbbbbbbbb.b
+.b.bbb.....b
+..b....bbbbb
+bb.bb.bbb...
+.b..b.b.....
+.b..b.b.b...
+.b..b...b...
+.bbbb.bbbbbb
+p...........`, 
+  map `
+pbbbbbbbb......
+.b......bb..bb.
+.bgb.b.b.bb..b.
+.bbb.....b.b.b.
+.b..b.b..b...b.
+.bb......b..bb.
+.bb...b..bb..b.
+.b.b.b..b....b.
+.b.......b.bbb.
+.bb.b........b.
+.b....bb.b...b.
+.b.b.b..b....b.
+.bbbbbbbbbbbbb.
+...............`,
