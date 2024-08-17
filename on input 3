@@ -1,0 +1,35 @@
+onInput("a", () => {
+  getFirst(player).x -= 1;
+});
+
+onInput("d", () => {
+  getFirst(player).x += 1;
+});
+
+onInput("w", () => {
+  getFirst(player).y -= 1;
+});
+
+onInput("s", () => {
+  getFirst(player).y += 1;
+});
+
+afterInput(() => {
+  const playerPos = getFirst(player);
+  
+  // Check for collisions with enemies
+  if (tilesWith(enemy).some(tile => tile.x === playerPos.x && tile.y === playerPos.y)) {
+    console.log("Game Over");
+    setMap(map`
+............
+............
+............
+..b.........
+..b.........
+..b..e......
+..b.........
+..bbbbbb....
+............
+gggggggggggg`);
+  }
+});
