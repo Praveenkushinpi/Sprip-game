@@ -1,0 +1,21 @@
+let player = {
+    x: 50,
+    y: 100,
+    velocityY: 0,
+    isJumping: false
+};
+const gravity = 1;
+const jumpStrength = -15; 
+function updateplayer() {
+    
+    if (player.isJumping) {
+        player.velocityY += gravity;
+        player.y += player.velocityY;
+
+        
+        if (player.y >= 10) {
+            player.y = 10;  
+            player.velocityY = 0;
+            player.isJumping = false; 
+        }
+    }
