@@ -1,0 +1,31 @@
+setPushables({
+  [ player ]: [],
+});
+
+onInput("a", () => {
+  getFirst(player).x -= 1;
+});
+
+onInput("d", () => {
+  getFirst(player).x += 1;
+});
+
+onInput("w", () => {
+  getFirst(player).y -= 1;
+});
+
+onInput("s", () => {
+  getFirst(player).y += 1;
+});
+onInput("i",()=> {
+  getFirst(player)
+let player = {
+    x: 50,
+    y: 100,
+    velocityY: 0,
+    isJumping: false
+};
+
+
+const gravity = 1;
+const jumpStrength = -15; 
