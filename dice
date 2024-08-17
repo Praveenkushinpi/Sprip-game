@@ -1,0 +1,17 @@
+Initialize the game and define a dice sprite
+let diceSprite = addText("?", {x: 5, y: 5});  // Placeholder text for the dice result
+
+// Function to roll the dice
+function rollDice() {
+    // Generate a random number between 1 and 6
+    let result = Math.floor(Math.random() * 6) + 1;
+    
+    // Update the dice sprite with the result
+    diceSprite.text = result.toString();
+}
+
+// Event listener to roll the dice when the player presses the space bar
+onInput("s", rollDice);  // Change "s" to whichever key you want to use for rolling
+
+// Optionally, show an initial message or instructions
+addText("Press S to roll the dice!", {x: 1, y: 1});
