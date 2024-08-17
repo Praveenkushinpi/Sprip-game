@@ -1,0 +1,8 @@
+Display the main menu options
+function showMainMenu() {
+    console.log("Main Menu:");
+    console.log("1. Play Game");
+    console.log("2. Reset Game");
+
+    // Get the user's choice (you might use prompt or similar in an actual environment)
+    const choice = prompt("Choose an option (1 or 2):");
