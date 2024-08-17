@@ -1,0 +1,13 @@
+Function to start the game
+function playGame() {
+    // Code to start your game
+    console.log("Game is starting...");
+    // Load your game logic here
+}
+
+// Function to reset the game
+function resetGame() {
+    // Code to reset your game
+    console.log("Game is resetting...");
+    // Reset the game state here
+}
