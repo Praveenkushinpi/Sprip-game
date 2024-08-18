@@ -1,0 +1,18 @@
+let currentLevel = levels[level];
+setMap(currentLevel);
+
+setSolids([snakeBody, wall]); 
+
+let snake = [getFirst(snakeBody)];
+let snakeDirection = "right";
+let growing = false;
+let gameOver = false;
+
+const eatSound = tune`
+125.52301255230125: C5^125.52301255230125 + A4^125.52301255230125 + E5^125.52301255230125,
+3891.213389121339`;
+const gameOverSound = tune`
+272.72727272727275: E5^272.72727272727275,
+272.72727272727275: C5^272.72727272727275,
+272.72727272727275: F4^272.72727272727275,
+7909.09090909091`;
