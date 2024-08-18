@@ -1,0 +1,12 @@
+afterInput(() => {
+ if (tilesWith(rat,player).length >= 1) {
+        health = 0
+      }
+    if (health <= 0) {
+      gameRunning = false;
+      clearText()
+      addText("Game Over!", {
+        x: 5,
+        y: 6,
+        color: color`3`
+      });
