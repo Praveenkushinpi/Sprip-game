@@ -1,0 +1,20 @@
+setInterval(() => {
+  const enemies = getAll(enemy);
+  enemies.forEach(e => {
+    const direction = Math.floor(Math.random() * 4);
+    switch (direction) {
+      case 0:
+        e.y -= 1;
+        break;
+      case 1:
+        e.y += 1;
+        break;
+      case 2:
+        e.x -= 1;
+        break;
+      case 3:
+        e.x += 1;
+        break;
+    }
+  });
+}, 1000);
