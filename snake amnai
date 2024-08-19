@@ -1,0 +1,19 @@
+function placeApple() {
+  let emptyTiles = [];
+  for (let x = 0; x < width(); x++) {
+    for (let y = 0; y < height(); y++) {
+      let tile = getTile(x, y);
+      if (tile.length === 0 || tile.every(sprite => ![snakeBody, wall].includes(sprite.type))) {
+        emptyTiles.push({ x, y });
+      }
+    }
+  }
+
+  if (emptyTiles.length > 0) {
+    let randomIndex = Math.floor(Math.random() * emptyTiles.length);
+    let { x, y } = emptyTiles[randomIndex];
+    addSprite(x, y, apple);
+  }
+}
+
+
