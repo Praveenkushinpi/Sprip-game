@@ -1,0 +1,17 @@
+placeApple();
+
+function moveSnake() {
+  if (gameOver) return;
+
+  let head = snake[0];
+  let newHead;
+  
+  if (snakeDirection === "up") {
+    newHead = { x: head.x, y: head.y - 1 };
+  } else if (snakeDirection === "down") {
+    newHead = { x: head.x, y: head.y + 1 };
+  } else if (snakeDirection === "left") {
+    newHead = { x: head.x - 1, y: head.y };
+  } else if (snakeDirection === "right") {
+    newHead = { x: head.x + 1, y: head.y };
+  }
