@@ -1,0 +1,21 @@
+if (newHead) {
+    let newHeadTile = getTile(newHead.x, newHead.y);
+    
+    if (newHeadTile.find(t => t.type === wall) || newHeadTile.find(t => t.type === snakeBody)) {
+      playTune(gameOverSound);
+      addText("Game Over!", { y: 4, color: color`3` });
+      gameOver = true;
+      return;
+    }
+
+    if (newHeadTile.find(t => t.type === apple)) {
+      playTune(eatSound);
+      growing = true;
+      clearTile(newHead.x, newHead.y);
+      placeApple();
+    }
+
+    addSprite(newHead.x, newHead.y, snakeBody);
+    if (snake.length > 0) {
+      addSprite(head.x, head.y, snakeBody);
+    }
