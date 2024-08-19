@@ -1,0 +1,108 @@
+setLegend(
+  [ snakeBody, bitmap`
+..DDDDDDDDDDDD..
+.DD2244444422DD.
+DD444244442444DD
+D24444244244442D
+D24444422444442D
+D42444422444424D
+D44244422444244D
+D44422200222444D
+D44422200222444D
+D44244422444244D
+D42444422444424D
+D24444422444442D
+D24444244244442D
+DD444244442444DD
+.DD2244444422DD.
+..DDDDDDDDDDDD..`],
+  [ apple, bitmap`
+.........4C.....
+........4C4.....
+........C44.....
+...0000C00000...
+...0330003330...
+..003333333300..
+..033333333330..
+..033333333330..
+..033333333330..
+..033333333330..
+..033333333300..
+..00033333330...
+....000333000...
+......00000.....
+................
+................`],
+  [ wall, bitmap`
+0000000000000000
+00000L0LL0LL0L00
+0L0L00LLLLL0L0L0
+0L0LL0LL0L11LLL0
+01111LLLLLLLL0L0
+0LLLLLLLLL11LLL0
+0L11L11LLLLLLLL0
+0LLLLLLL11LLLLL0
+011LLLLLLLLL11L0
+0LL11LL11LLLLLL0
+0LLLLLLLLLL11LL0
+0LLL11LLLLLLLLL0
+00LLLLL00LLLLLL0
+00L0LLL0LL0LL0L0
+0000000000000000
+0000000000000000`]
+);
+
+let level = 0; 
+const levels = [
+  map`
+wwwwwwwwwwwwwwww
+w..............w
+w..............w
+w..............w
+w...wwwwwwww...w
+w..............w
+w..............w
+w..............w
+w..............w
+w..............w
+w.....s....www.w
+w..............w
+w..............w
+w..............w
+w..............w
+w.www.....www..w
+w..............w
+w..............w
+w..............w
+wwwwwwwwwwwwwwww`,
+];
+
+let currentLevel = levels[level];
+setMap(currentLevel);
+
+setSolids([snakeBody, wall]); 
+
+let snake = [getFirst(snakeBody)];
+let snakeDirection = "right";
+let growing = false;
+let gameOver = false;
+
+const eatSound = tune`
+125.52301255230125: C5^125.52301255230125 + A4^125.52301255230125 + E5^125.52301255230125,
+3891.213389121339`;
+const gameOverSound = tune`
+272.72727272727275: E5^272.72727272727275,
+272.72727272727275: C5^272.72727272727275,
+272.72727272727275: F4^272.72727272727275,
+7909.09090909091`;
+
+function placeApple() {
+  let emptyTiles = [];
+  for (let x = 0; x < width(); x++) {
+    for (let y = 0; y < height(); y++) {
+      let tile = getTile(x, y);
+      if (tile.length === 0 || tile.every(sprite => ![snakeBody, wall].includes(sprite.type))) {
+        emptyTiles.push({ x, y });
+      }
+    }
+  }
