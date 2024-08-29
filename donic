@@ -114,3 +114,16 @@ function movedonic() {
 
   let head = donic[0];
   let newHead;
+if (donicDirection === "up") {
+    newHead = { x: head.x, y: head.y - 1 };
+  } else if (donicDirection === "down") {
+    newHead = { x: head.x, y: head.y + 1 };
+  } elsehead.(donicDirection === "left") {
+    newHead = { x: head.x - 1, y: head.y };
+  } else if (donicDirection === "right") {
+    newHead = { x: head.x + 1, y: head.y };
+  }
+
+  if (newHead) {
+    let newHeadTile = getTile(newHead.x, newHead.y);
+    
