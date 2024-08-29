@@ -154,3 +154,20 @@ if (newHeadTile.find(t => t.type === wall) || newHeadTile.find(t => t.type === d
     }
   }
 }
+onInput("w", () => {
+    donicDirection = "up";
+});
+
+onInput("a", () => {
+    donicDirection = "left";
+});
+
+onInput("s", () => {
+    snakeDirection = "down";
+});
+
+onInput("d", () => {
+    donicDirection = "right";
+});
+
+setInterval(movedonic, 120);
