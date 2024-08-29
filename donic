@@ -85,7 +85,7 @@ wwwwwwwwwwwwwwww`,
 let currentLevel = levels[level];
 setMap(currentLevel);
 
-setSolids([snakeBody, wall]); 
+setSolids([donic, spike]); 
 let donic = [getFirst(donic)];
 let donicDirection = "right";
 let growing = false;
