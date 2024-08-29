@@ -126,4 +126,17 @@ if (donicDirection === "up") {
 
   if (newHead) {
     let newHeadTile = getTile(newHead.x, newHead.y);
+if (newHeadTile.find(t => t.type === wall) || newHeadTile.find(t => t.type === donic)) {
+      playTune(gameOverSound);
+      addText("Game Over!", { y: 4, color: color`3` });
+      gameOver = true;
+      return;
+    }
+
+    if (newHeadTile.find(t => t.type === star)) {
+      playTune(chopSound);
+      growing = true;
+      clearTile(newHead.x, newHead.y);
+      placespike();
+    }
     
