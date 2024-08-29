@@ -100,3 +100,17 @@ function placestar() {
       }
     }
   }
+if (emptyTiles.length > 0) {
+    let randomIndex = Math.floor(Math.random() * emptyTiles.length);
+    let { x, y } = emptyTiles[randomIndex];
+    addSprite(x, y, star);
+  }
+}
+
+placespike();
+
+function movedonic() {
+  if (gameOver) return;
+
+  let head = donic[0];
+  let newHead;
