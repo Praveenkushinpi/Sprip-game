@@ -139,4 +139,18 @@ if (newHeadTile.find(t => t.type === wall) || newHeadTile.find(t => t.type === d
       clearTile(newHead.x, newHead.y);
       placespike();
     }
+    addSprite(newHead.x, newHead.y, donic);
+    if (donic.length > 0) {
+      addSprite(head.x, head.y, donic);
+    }
     
+    donic.unshift(newHead);
+    
+    if (!growing) {
+      let tail = donic.pop();
+      clearTile(tail.x, tail.y);
+    } else {
+      growing = false;
+    }
+  }
+}
