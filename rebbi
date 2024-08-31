@@ -173,3 +173,32 @@ onInput("a", () => {
 onInput("d", () => {
   getFirst(rabbit).x += 1;
 });
+// Function to handle random carrot respawn
+function respawnCarrot() {
+  const emptyTiles = getAllTiles().filter(tile => tile.every(obj => obj.type !== rabbit && obj.type !== rock && obj.type !== trap && obj.type !== powerUp));
+  if (emptyTiles.length > 0) {
+    const newCarrotTile = emptyTiles[Math.floor(Math.random() * emptyTiles.length)];
+    addSprite(newCarrotTile.x, newCarrotTile.y, carrot);
+  }
+}
+
+// Timer interval
+setInterval(() => {
+  timeLeft -= 1;
+  updateTimer();
+  if (timeLeft <= 0) {
+    gameOver();
+  }
+}, 1000);
+
+// Movement logic for traps
+setInterval(() => {
+  const traps = getAll(trap);
+  traps.forEach(trapObj => {
+    const nextY = trapObj.y + trapDirection;
+    // Check if the trap is within bounds and change direction if needed
+    if (nextY < 0 || nextY >= height()) {
+      trapDirection *= -1;
+    } else {
+      trapObj.y += trapDirection;
+    }
