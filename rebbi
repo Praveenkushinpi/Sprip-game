@@ -133,3 +133,43 @@ function updateHealth() {
   clearText();
   addText("Health: " + health, { x: 1, y: 0 });
 }
+
+// Function to update score
+function updateScore() {
+  clearText();
+  addText("Score: " + score, { x: 1, y: 1 });
+}
+
+// Function to update timer
+function updateTimer() {
+  clearText();
+  addText("Time: " + timeLeft, { x: 1, y: 2 });
+}
+
+// Function to handle game over
+function gameOver() {
+  addText("Game Over!", { x: 3, y: 2 });
+  // Logic to reset or end the game
+}
+
+// Initial UI updates
+updateHealth();
+updateScore();
+updateTimer();
+
+// Movement controls for the rabbit
+onInput("w", () => {
+  getFirst(rabbit).y -= 1;
+});
+
+onInput("s", () => {
+  getFirst(rabbit).y += 1;
+});
+
+onInput("a", () => {
+  getFirst(rabbit).x -= 1;
+});
+
+onInput("d", () => {
+  getFirst(rabbit).x += 1;
+});
